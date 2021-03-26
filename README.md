@@ -148,3 +148,7 @@ Ciao mondo | ykZ62R21QMiLsMavYRXfet0OVVtmVWknVI5X5llpKJGQH65YaGTQNwW1l21xBEp0TOt
 ```
 
 > ⚠️️ &nbsp;`ls()` returns a **generator**. Keep that in mind!
+
+# Changelog
+
+Check the [Changelog](CHANGELOG.md) for bug fixes, enhancements and features.
