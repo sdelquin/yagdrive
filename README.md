@@ -1,4 +1,4 @@
-![yagdrive-logo](yagdrive-logo.svg)
+![yagdrive-logo](https://raw.githubusercontent.com/sdelquin/yagdrive/main/yagdrive-logo.svg)
 
 **Yet Another Google Drive API Python wrapper!**
 
@@ -56,7 +56,7 @@ First of all you must create the **handler**:
 >>> drive.put('/home/yagdrive/hello.json')
 ```
 
-![Boom easy](https://im3.ezgif.com/tmp/ezgif-3-5ff55c12e859.gif)
+![Boom easy](https://i.imgur.com/UIMz2Lu.gif)
 
 `put()` method returns an instance of [pydrive.files.GoogleDriveFile](https://pythonhosted.org/PyDrive/pydrive.html#pydrive.files.GoogleDriveFile). Many fields are available in that object as a _parsed json_. For instance you could get the **download link**:
 
