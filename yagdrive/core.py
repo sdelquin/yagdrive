@@ -53,3 +53,13 @@ class GDrive:
 
     def cd(self, folder_id='root'):
         self.cwd = folder_id
+
+    def del_by_id(self, file_id: str):
+        file = self.drive.CreateFile({'id': file_id})
+        file.Delete()
+
+    def del_by_title(self, title: str):
+        for file in self.ls():
+            if file['title'] == title:
+                file.Delete()
+                break
