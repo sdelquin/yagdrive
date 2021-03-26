@@ -89,9 +89,19 @@ You can change the remote work directory (for yagmail) on Google Drive using the
 
 ```python
 >>> drive.cd('IOx1Q2ZuQb7ZfGjdmwfnD6Fig1pBlnAnp)
+'python-scripts'
 ```
 
-> 🎒 &nbsp;Argument is the id of the folder.
+The only argument is the id of the folder. It returns the title of the folder.
+
+### Present work directory
+
+You can check the present work directory using the following code:
+
+```python
+>>> drive.pwd
+'python-scripts'
+```
 
 ## Download a file
 

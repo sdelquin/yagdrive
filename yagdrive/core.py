@@ -16,7 +16,7 @@ class GDrive:
         gauth = GoogleAuth()
         gauth.LoadCredentialsFile(credentials_file)
         self.drive = GoogleDrive(gauth)
-        self.cwd = 'root'
+        self.workdir = 'root'
 
     def put(self, source_path: str, title=None, overwrite=True):
         source_file = Path(source_path)
@@ -24,7 +24,7 @@ class GDrive:
         file = self.drive.CreateFile(
             {
                 'title': title,
-                'parents': [{'id': self.cwd}],
+                'parents': [{'id': self.workdir}],
             }
         )
         if overwrite:
@@ -48,11 +48,17 @@ class GDrive:
                 return self.get_by_id(file['id'])
 
     def ls(self):
-        q = f"'{self.cwd}' in parents and trashed=False"
+        q = f"'{self.workdir}' in parents and trashed=False"
         yield from self.drive.ListFile({'q': q}).GetList()
 
+    @property
+    def pwd(self):
+        file = self.drive.CreateFile({'id': self.workdir})
+        return file['title']
+
     def cd(self, folder_id='root'):
-        self.cwd = folder_id
+        self.workdir = folder_id
+        return self.pwd
 
     def del_by_id(self, file_id: str):
         file = self.drive.CreateFile({'id': file_id})
