@@ -27,13 +27,29 @@ class GDrive:
                 'parents': [{'id': self.cwd}],
             }
         )
+        if overwrite:
+            for remote_file in self.ls():
+                if remote_file['title'] == title:
+                    file = self.drive.CreateFile({'id': remote_file['id']})
+                    break
         file.SetContentFile(source_file)
         file.Upload()
-        return file['id']
+        return file
+
+    def get_by_id(self, file_id: str):
+        file = self.drive.CreateFile({'id': file_id})
+        filename = file['title']
+        file.GetContentFile(filename)
+        return Path(filename), file
+
+    def get_by_title(self, title: str):
+        for file in self.ls():
+            if file['title'] == title:
+                return self.get_by_id(file['id'])
 
     def ls(self):
         q = f"'{self.cwd}' in parents and trashed=False"
-        return self.drive.ListFile({'q': q}).GetList()
+        yield from self.drive.ListFile({'q': q}).GetList()
 
     def cd(self, folder_id='root'):
         self.cwd = folder_id
