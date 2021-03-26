@@ -1,7 +1,5 @@
-# yagdrive
+![yagdrive-logo](yagdrive-logo.svg)
 
-Yet Another Google Drive API Python wrapper
+**Yet Another Google Drive API Python wrapper!**
 
-## Motivation
-
-This Python package is based on [PyDrive](https://pythonhosted.org/PyDrive/) and it tries to simplify and enhance the operations over the [Google Drive API](https://developers.google.com/drive).
+`yagdrive` is a Python package based on [PyDrive](https://pythonhosted.org/PyDrive/) which aims to simplify and enhance the operations over the [Google Drive API](https://developers.google.com/drive).
