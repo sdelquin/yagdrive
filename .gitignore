@@ -5,3 +5,6 @@ __pycache__
 gdrive-credentials.json
 gdrive-secrets.json
 .resources
+*.egg-info
+build
+dist
