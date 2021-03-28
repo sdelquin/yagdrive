@@ -2,6 +2,10 @@
 
 Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<patch>`).
 
+## istacpy 1.0.0 (2021-03-28)
+
+- Publish package on PyPI.
+
 ## istacpy 0.2.1 (2021-03-28)
 
 - Add documentation of functions.
