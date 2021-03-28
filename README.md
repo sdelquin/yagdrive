@@ -50,6 +50,11 @@ First of all you must create the **handler**:
 >>> drive = GDrive()
 ```
 
+You can pass two arguments to `GDrive()`:
+
+- `credentials_file` (default: `'gdrive-credentials.json'`)
+- `secrets_file` (default: `'gdrive-secrets.json'`)
+
 ## Upload a file
 
 ```python
@@ -69,8 +74,7 @@ First of all you must create the **handler**:
 # check f.keys() for the whole list of fields
 ```
 
-<details>
-  <summary>See more use cases:</summary>
+See more **use cases**:
 
 ```python
 # Set a custom title for the uploaded file
@@ -78,8 +82,6 @@ First of all you must create the **handler**:
 # Do not overwrite files with the same name
 >>> drive.put('/home/yagdrive/hello.json', overwrite=False)
 ```
-
-</details><br>
 
 > ⚠️️ &nbsp;By default, `put()` uploads the file to the `root` of Google Drive. This behaviour can be changed using `cd()` method.
 
@@ -143,6 +145,8 @@ Or you can even delete a file using its **title**:
 >>> drive.del_by_title('hello.json')
 ```
 
+> ⚠️️ &nbsp;These methods **do not move the files to the trash**; they **definitely removes** the file.
+
 ## List contents of a folder
 
 You can list the files (and directories) within a remote folder on Google Drive as follows:
@@ -162,3 +166,7 @@ Ciao mondo | ykZ62R21QMiLsMavYRXfet0OVVtmVWknVI5X5llpKJGQH65YaGTQNwW1l21xBEp0TOt
 # Changelog
 
 Check the [Changelog](CHANGELOG.md) for bug fixes, enhancements and features.
+
+# License
+
+[MIT](LICENSE)
