@@ -7,25 +7,23 @@ ROOT_FOLDER_ID = 'root'
 
 
 class GDrive:
-    """
-    Wrapper on pydrive.drive.GoogleDrive.
-    """
+    """Wrapper on pydrive.drive.GoogleDrive."""
 
     def __init__(
         self,
         credentials_file='gdrive-credentials.json',
         secrets_file='gdrive-secrets.json',
     ):
-        """
-        Load credentials and build Google Drive handler.
+        """Load credentials and build Google Drive handler.
 
         Parameters
         ----------
-        credentials_file: str
+        credentials_file : str, optional
             Path to the file containing credentials to access Google Drive.
-        secrets_file: str
+        secrets_file : str, optional
             Path to the file containing client secrets to access Google Drive.
         """
+
         GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = secrets_file
         gauth = GoogleAuth()
         gauth.LoadCredentialsFile(credentials_file)
@@ -33,17 +31,16 @@ class GDrive:
         self.workdir = 'root'
 
     def put(self, source_path: str, title=None, overwrite=True):
-        """
-        Upload a file to Google Drive.
+        """Upload a file to Google Drive.
 
         Parameters
         ----------
-        source_path: str
+        source_path : str
             Path to the local file to upload.
-        title: str
+        title : str, optional
             Title for the uploaded file. If not specified the filename of the local file is
             used as the title for the uploaded file.
-        overwrite: bool
+        overwrite : bool, optional
             If True no duplicates can happen on uploaded files. Otherwise a new remote file
             is created (with the same name) if a same file exists.
 
@@ -70,12 +67,11 @@ class GDrive:
         return file
 
     def get_by_id(self, file_id: str):
-        """
-        Download a file through its identifier.
+        """Download a file through its identifier.
 
         Parameters
         ----------
-        file_id: str
+        file_id : str
             Google Drive identifier (slug) of the file to be downloaded.
 
         Returns
@@ -91,12 +87,11 @@ class GDrive:
         return Path(filename), file
 
     def get_by_title(self, title: str):
-        """
-        Download a file through its title.
+        """Download a file through its title.
 
         Parameters
         ----------
-        title: str
+        title : str
             Google Drive title of the file to be downloaded.
 
         Returns
@@ -111,8 +106,7 @@ class GDrive:
                 return self.get_by_id(file['id'])
 
     def ls(self):
-        """
-        List of files/folders on the present work remote directory.
+        """List of files/folders on the present work remote directory.
 
         Yields
         ------
@@ -124,8 +118,7 @@ class GDrive:
 
     @property
     def pwd(self):
-        """
-        Present work directory.
+        """Present work directory.
 
         Returns
         -------
@@ -136,12 +129,11 @@ class GDrive:
         return file['title']
 
     def cd(self, folder_id='root'):
-        """
-        Change present work directory on remote Google Drive.
+        """Change present work directory on remote Google Drive.
 
         Parameters
         ----------
-        folder_id: str
+        folder_id : str, optional
             Google Drive identifier of the folder to change to.
 
         Returns
@@ -153,24 +145,22 @@ class GDrive:
         return self.pwd
 
     def del_by_id(self, file_id: str):
-        """
-        Delete a file through its identifier (no trash recovery).
+        """Delete a file through its identifier (no trash recovery).
 
         Parameters
         ----------
-        file_id: str
+        file_id : str
             Google Drive identifier (slug) of the file to be downloaded.
         """
         file = self.drive.CreateFile({'id': file_id})
         file.Delete()
 
     def del_by_title(self, title: str):
-        """
-        Delete a file through its title.
+        """Delete a file through its title.
 
         Parameters
         ----------
-        title: str
+        title : str
             Google Drive title of the file to be downloaded.
         """
         for file in self.ls():

@@ -3,8 +3,7 @@ import os
 
 
 def get_credentials():
-    """
-    Get credentials to access Google Drive API.
+    """Get credentials to access Google Drive API.
 
     A browser is opened with an authorization window.
     Keep in mind that less secure apps might needed be enabled.
