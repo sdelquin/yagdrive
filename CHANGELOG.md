@@ -2,6 +2,11 @@
 
 Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<patch>`).
 
+## istacpy 1.1.0 (2021-03-29)
+
+- Allow mimetype when downloading files.
+- Fix docstrings.
+
 ## istacpy 1.0.0 (2021-03-28)
 
 - Publish package on PyPI.
