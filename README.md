@@ -131,6 +131,17 @@ PosixPath('hello.json')
 pydrive.files.GoogleDriveFile
 ```
 
+Both approaches allow **mimetype** specification:
+
+```python
+>>> local_file, remote_file = drive.get_by_id(
+        file_id='2QFfbG1IjBnAndp6gwZD7nQixOlup1Zfm',
+        mimetype='application/json'
+    )
+```
+
+> 🎒 &nbsp;This is quite useful when handling **Google Drive native formats** (Docs, Sheets, Slides, Forms, Drawings).
+
 ## Delete a file
 
 You can delete a file using its **identifier**:

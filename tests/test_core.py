@@ -48,10 +48,28 @@ def test_get_by_id(drive):
     drive.del_by_id(f['id'])
 
 
+def test_get_by_id_with_mimetype(drive):
+    filename = 'README.md'
+    f = drive.put(filename)
+    filepath, file = drive.get_by_id(f['id'], mimetype='text/html')
+    assert filepath.name == filename
+    assert file['id'] == f['id']
+    drive.del_by_id(f['id'])
+
+
 def test_get_by_title(drive):
     filename = 'README.md'
     f = drive.put(filename)
     filepath, file = drive.get_by_title(filename)
+    assert filepath.name == filename
+    assert file['id'] == f['id']
+    drive.del_by_id(f['id'])
+
+
+def test_get_by_title_with_mimetype(drive):
+    filename = 'README.md'
+    f = drive.put(filename)
+    filepath, file = drive.get_by_title(filename, mimetype='text/html')
     assert filepath.name == filename
     assert file['id'] == f['id']
     drive.del_by_id(f['id'])

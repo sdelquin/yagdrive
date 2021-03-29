@@ -66,13 +66,17 @@ class GDrive:
         file.Upload()
         return file
 
-    def get_by_id(self, file_id: str):
+    def get_by_id(self, file_id: str, mimetype=None):
         """Download a file through its identifier.
 
         Parameters
         ----------
         file_id : str
             Google Drive identifier (slug) of the file to be downloaded.
+        mimetype : str, optional
+            used mimetype to download the file. If None, automatic mimetype detection is
+            applied.
+            https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
 
         Returns
         -------
@@ -83,16 +87,20 @@ class GDrive:
         """
         file = self.drive.CreateFile({'id': file_id})
         filename = file['title']
-        file.GetContentFile(filename)
+        file.GetContentFile(filename, mimetype=mimetype)
         return Path(filename), file
 
-    def get_by_title(self, title: str):
+    def get_by_title(self, title: str, mimetype=None):
         """Download a file through its title.
 
         Parameters
         ----------
         title : str
             Google Drive title of the file to be downloaded.
+        mimetype : str, optional
+            used mimetype to download the file. If None, automatic mimetype detection is
+            applied.
+            https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
 
         Returns
         -------
@@ -103,7 +111,7 @@ class GDrive:
         """
         for file in self.ls():
             if file['title'] == title:
-                return self.get_by_id(file['id'])
+                return self.get_by_id(file['id'], mimetype)
 
     def ls(self):
         """List of files/folders on the present work remote directory.
