@@ -57,6 +57,17 @@ def test_get_by_id_with_mimetype(drive):
     drive.del_by_id(f['id'])
 
 
+def test_get_by_id_with_filename(drive):
+    filename = 'README.md'
+    f = drive.put(filename)
+    output_filename = 'TEST.md'
+    filepath, file = drive.get_by_id(f['id'], output_filename=output_filename)
+    assert filepath.name == output_filename
+    assert file['id'] == f['id']
+    drive.del_by_id(f['id'])
+    filepath.unlink()
+
+
 def test_get_by_title(drive):
     filename = 'README.md'
     f = drive.put(filename)
@@ -73,6 +84,17 @@ def test_get_by_title_with_mimetype(drive):
     assert filepath.name == filename
     assert file['id'] == f['id']
     drive.del_by_id(f['id'])
+
+
+def test_get_by_title_with_filename(drive):
+    filename = 'README.md'
+    f = drive.put(filename)
+    output_filename = 'TEST.md'
+    filepath, file = drive.get_by_title(filename, output_filename=output_filename)
+    assert filepath.name == output_filename
+    assert file['id'] == f['id']
+    drive.del_by_id(f['id'])
+    filepath.unlink()
 
 
 def test_ls(drive):

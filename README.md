@@ -131,6 +131,22 @@ PosixPath('hello.json')
 pydrive.files.GoogleDriveFile
 ```
 
+### Filename
+
+Both approaches allow you to indicate an **explicit filename** for the downloaded resource:
+
+```python
+>>> local_file, remote_file = drive.get_by_id(
+        file_id='2QFfbG1IjBnAndp6gwZD7nQixOlup1Zfm',
+        output_filename='testing.json'
+    )
+
+>>> local_file
+PosixPath('testing.json')
+```
+
+### Mimetype
+
 Both approaches allow **mimetype** specification:
 
 ```python
@@ -141,6 +157,8 @@ Both approaches allow **mimetype** specification:
 ```
 
 > 🎒 &nbsp;This is quite useful when handling **Google Drive native formats** (Docs, Sheets, Slides, Forms, Drawings).
+
+You can check out the [list of mimetypes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 ## Delete a file
 

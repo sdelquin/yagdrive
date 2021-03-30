@@ -66,17 +66,19 @@ class GDrive:
         file.Upload()
         return file
 
-    def get_by_id(self, file_id: str, mimetype=None):
+    def get_by_id(self, file_id: str, output_filename: str = None, mimetype=None):
         """Download a file through its identifier.
 
         Parameters
         ----------
         file_id : str
             Google Drive identifier (slug) of the file to be downloaded.
+        output_filename: str, optional
+            Filename for the downloaded file. If None, the title of the remote file is
+            used instead.
         mimetype : str, optional
-            used mimetype to download the file. If None, automatic mimetype detection is
+            Used mimetype to download the file. If None, automatic mimetype detection is
             applied.
-            https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
 
         Returns
         -------
@@ -86,21 +88,22 @@ class GDrive:
             Object representing the remote file on Google Drive.
         """
         file = self.drive.CreateFile({'id': file_id})
-        filename = file['title']
+        filename = output_filename or file['title']
         file.GetContentFile(filename, mimetype=mimetype)
         return Path(filename), file
 
-    def get_by_title(self, title: str, mimetype=None):
+    def get_by_title(self, title: str, output_filename: str = None, mimetype=None):
         """Download a file through its title.
 
         Parameters
         ----------
         title : str
             Google Drive title of the file to be downloaded.
+        output_filename: str, optional
+            Filename for the downloaded file. If None, the title of the remote file is
         mimetype : str, optional
-            used mimetype to download the file. If None, automatic mimetype detection is
+            Used mimetype to download the file. If None, automatic mimetype detection is
             applied.
-            https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
 
         Returns
         -------
@@ -111,7 +114,7 @@ class GDrive:
         """
         for file in self.ls():
             if file['title'] == title:
-                return self.get_by_id(file['id'], mimetype)
+                return self.get_by_id(file['id'], output_filename, mimetype)
 
     def ls(self):
         """List of files/folders on the present work remote directory.
