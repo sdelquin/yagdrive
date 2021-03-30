@@ -2,6 +2,11 @@
 
 Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<patch>`).
 
+## istacpy 1.2.0 (2021-03-30)
+
+- Add param to change filename when downloading.
+- Add an isolated doc for PyPI.
+
 ## istacpy 1.1.0 (2021-03-29)
 
 - Allow mimetype when downloading files.
