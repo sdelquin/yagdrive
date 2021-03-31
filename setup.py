@@ -13,6 +13,6 @@ setup(
     long_description=Path('PyPI.md').read_text(),
     long_description_content_type='text/markdown',
     packages=["yagdrive"],
-    install_requires=["pydrive"],
+    install_requires=["pydrive", "mimetype-description"],
     python_requires='>=3.6',
 )

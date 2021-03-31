@@ -1,7 +1,9 @@
 from pathlib import Path
 
+from mimetype_description import guess_mime_type
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
+from pydrive.files import FileNotDownloadableError
 
 ROOT_FOLDER_ID = 'root'
 
@@ -77,7 +79,7 @@ class GDrive:
             Filename for the downloaded file. If None, the title of the remote file is
             used instead.
         mimetype : str, optional
-            Used mimetype to download the file. If None, automatic mimetype detection is
+            Mimetype used to download the file. If None, automatic mimetype detection is
             applied.
 
         Returns
@@ -89,7 +91,14 @@ class GDrive:
         """
         file = self.drive.CreateFile({'id': file_id})
         filename = output_filename or file['title']
-        file.GetContentFile(filename, mimetype=mimetype)
+        try:
+            file.GetContentFile(filename, mimetype=mimetype)
+        except FileNotDownloadableError:
+            if output_filename:
+                mimetype = guess_mime_type(output_filename)
+                file.GetContentFile(filename, mimetype=mimetype)
+            else:
+                raise
         return Path(filename), file
 
     def get_by_title(self, title: str, output_filename: str = None, mimetype=None):
@@ -102,7 +111,7 @@ class GDrive:
         output_filename: str, optional
             Filename for the downloaded file. If None, the title of the remote file is
         mimetype : str, optional
-            Used mimetype to download the file. If None, automatic mimetype detection is
+            Mimetype used to download the file. If None, automatic mimetype detection is
             applied.
 
         Returns

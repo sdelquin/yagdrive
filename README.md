@@ -160,6 +160,20 @@ Both approaches allow **mimetype** specification:
 
 You can check out the [list of mimetypes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
+#### Mimetype automatic detection
+
+If an output filename is indicated when downloading a file, an automatic detection of the mimetype is performed based on the filename suffix, as long as the remote file won't be downloadable:
+
+```python
+>>> local_file, remote_file = drive.get_by_id(
+        # Suppose the remote file is a Google Spreadsheet
+        file_id='jfi1xD1punnQwdFlAO6QZG7mBZIb2nfpg',
+        output_filename='/tmp/data.xlsx'
+    )
+```
+
+On the above example, no mimetype is indicated, hence the automatic detection passes `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` as mimetype.
+
 ## Delete a file
 
 You can delete a file using its **identifier**:
