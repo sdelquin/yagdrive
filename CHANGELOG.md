@@ -2,6 +2,10 @@
 
 Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<patch>`).
 
+## istacpy 1.3.0 (2021-03-31)
+
+- Add automatic detection of mimetype.
+
 ## istacpy 1.2.0 (2021-03-30)
 
 - Add param to change filename when downloading.
