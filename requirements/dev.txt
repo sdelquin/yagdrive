@@ -1,0 +1,4 @@
+-r base.txt
+-r docs.txt
+pytest
+twine

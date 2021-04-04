@@ -7,6 +7,7 @@ Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<pa
 - Add config file for documentation.
 - Pin some dependencies.
 - Fix ipython code in documentation.
+- Refactor requirements.
 
 ## Version 1.4.0
 

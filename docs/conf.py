@@ -90,3 +90,7 @@ myst_substitutions = {
     '(https://img.shields.io/github/stars/sdelquin/yagdrive?style=social)]'
     '(https://github.com/sdelquin/yagdrive/)',
 }
+
+# autodoc
+
+autodoc_mock_imports = ['pydrive', 'mimetype_description']
