@@ -2,7 +2,7 @@
 
 Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<patch>`).
 
-## Unreleased
+## Version 1.4.0
 
 - Reformat changelog headings.
 - Add documentation in Sphinx format.
