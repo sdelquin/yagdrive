@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='yagdrive',
-    version='1.4.0',
+    version='1.4.1',
     url='https://github.com/sdelquin/yagdrive.git',
     author='Sergio Delgado Quintero',
     author_email='sdelquin@gmail.com',
