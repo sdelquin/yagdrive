@@ -5,3 +5,4 @@ python:
     - requirements: docs/requirements.txt
 sphinx:
   builder: dirhtml
+  fail_on_warning: true
