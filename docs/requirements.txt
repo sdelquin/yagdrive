@@ -1,4 +1,7 @@
+docutils==0.16
+sphinx
+sphinx-autobuild
 sphinx-book-theme
 myst-parser
 linkify-it-py
-sphinx_panels
+sphinx-panels

@@ -5,6 +5,7 @@ Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<pa
 ## Unreleased
 
 - Add config file for documentation.
+- Pin some dependencies.
 
 ## Version 1.4.0
 
