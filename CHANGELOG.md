@@ -5,6 +5,7 @@ Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<pa
 ## Unreleased
 
 - Reformat changelog headings.
+- Add documentation in Sphinx format.
 
 ## Version 1.3.0
 

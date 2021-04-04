@@ -170,7 +170,7 @@ class GDrive:
         Parameters
         ----------
         file_id : str
-            Google Drive identifier (slug) of the file to be downloaded.
+            Google Drive identifier (slug) of the file to be deleted.
         """
         file = self.drive.CreateFile({'id': file_id})
         file.Delete()
@@ -181,7 +181,7 @@ class GDrive:
         Parameters
         ----------
         title : str
-            Google Drive title of the file to be downloaded.
+            Google Drive title of the file to be deleted.
         """
         for file in self.ls():
             if file['title'] == title:

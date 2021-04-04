@@ -1,0 +1,30 @@
+/* Taken from https://bit.ly/2OikW8y */
+.hide-header > h1:first-child {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* No explicit option to hide top full screen button */
+a.full-screen-button {
+  display: none;
+}
+
+/* Fix https://bit.ly/3woq4Jr */
+main.bd-content #main-content dl.module dt .headerlink:after,
+main.bd-content #main-content dl.class dt .headerlink:after,
+main.bd-content #main-content dl.exception dt .headerlink:after,
+main.bd-content #main-content dl.function dt .headerlink:after,
+main.bd-content #main-content dl.decorator dt .headerlink:after,
+main.bd-content #main-content dl.data dt .headerlink:after,
+main.bd-content #main-content dl.method dt .headerlink:after,
+main.bd-content #main-content dl.attribute dt .headerlink:after {
+  content: "¶";
+  font-family: sans-serif;
+  font-weight: bold;
+}

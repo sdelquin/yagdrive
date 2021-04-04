@@ -10,7 +10,7 @@ setup(
     author_email="sdelquin@gmail.com",
     license='MIT',
     description="Yet Another Google Drive API Python wrapper",
-    long_description=Path('PyPI.md').read_text(),
+    long_description=Path('README.md').read_text(),
     long_description_content_type='text/markdown',
     packages=["yagdrive"],
     install_requires=["pydrive", "mimetype-description"],
