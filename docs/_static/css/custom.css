@@ -28,3 +28,8 @@ main.bd-content #main-content dl.attribute dt .headerlink:after {
   font-family: sans-serif;
   font-weight: bold;
 }
+
+/* Fix an issue where a scroll-bar appears on some tables when scrolling over it */
+.bd-content .section table.table {
+  overflow: unset;
+}
