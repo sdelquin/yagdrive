@@ -4,7 +4,7 @@ Every file in Google Drive has [its own **identifier**](https://stackoverflow.co
 
 ````{tabbed} Downloading by identifier
 
-```ipython
+```pycon
 >>> local_file, remote_file = drive.get_by_id('2QFfbG1IjBnAndp6gwZD7nQixOlup1Zfm')
 
 >>> local_file
@@ -18,7 +18,7 @@ pydrive.files.GoogleDriveFile
 
 ````{tabbed} Downloading by title
 
-```ipython
+```pycon
 >>> local_file, remote_file = drive.get_by_title('hello.json')
 
 >>> local_file
@@ -38,11 +38,11 @@ File is searched by its title in the _present work directory_. You [can change i
 
 Both approaches allow you to indicate an **explicit filename** for the downloaded resource:
 
-```ipython
+```pycon
 >>> local_file, remote_file = drive.get_by_id(
-    file_id='2QFfbG1IjBnAndp6gwZD7nQixOlup1Zfm',
-    output_filename='testing.json'
-)
+...     file_id='2QFfbG1IjBnAndp6gwZD7nQixOlup1Zfm',
+...     output_filename='testing.json'
+... )
 
 >>> local_file
 PosixPath('testing.json')
@@ -52,11 +52,11 @@ PosixPath('testing.json')
 
 Both approaches allow **mimetype**[^mimetype] specification:
 
-```ipython
+```pycon
 >>> local_file, remote_file = drive.get_by_id(
-        file_id='2QFfbG1IjBnAndp6gwZD7nQixOlup1Zfm',
-        mimetype='application/json'
-    )
+...     file_id='2QFfbG1IjBnAndp6gwZD7nQixOlup1Zfm',
+...     mimetype='application/json'
+... )
 ```
 
 :::{tip}

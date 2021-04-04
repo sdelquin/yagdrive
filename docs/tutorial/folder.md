@@ -29,7 +29,7 @@ print(drive.pwd)
 
 You can list the files (and directories) within a remote folder on Google Drive as follows:
 
-```ipython
+```pycon
 >>> for file in drive.ls():
 ...     print(file['title'], '|', file['id'])
 
