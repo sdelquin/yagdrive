@@ -2,12 +2,15 @@
 
 Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<patch>`).
 
-## Unreleased
+## Version 1.4.1
+
+Released 2021-04-04
 
 - Add config file for documentation.
 - Pin some dependencies.
 - Fix ipython code in documentation.
 - Refactor requirements.
+- Bug fixes and other minor improvements.
 
 ## Version 1.4.0
 
