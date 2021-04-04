@@ -2,6 +2,12 @@
 
 Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<patch>`).
 
+## Unreleased
+
+Release XXXX-XX-XX
+
+- Add html title suffix for all pages.
+
 ## Version 1.4.1
 
 Released 2021-04-04

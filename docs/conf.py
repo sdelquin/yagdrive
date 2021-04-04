@@ -61,7 +61,7 @@ html_theme_options = {
     'extra_navbar': '',
 }
 
-html_title = ''
+html_title = 'YagDrive'
 html_logo = '_static/img/yagdrive-logo.svg'
 html_favicon = '_static/img/yagdrive-favicon.png'
 
