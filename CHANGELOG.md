@@ -4,6 +4,8 @@ Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<pa
 
 ## Version 1.4.0
 
+Released 2021-04-04
+
 - Reformat changelog headings.
 - Add documentation in Sphinx format.
 
