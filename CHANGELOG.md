@@ -2,6 +2,10 @@
 
 Versions follow [Semantic Versioning](https://semver.org/) (`<major>.<minor>.<patch>`).
 
+## Unreleased
+
+- Add config file for documentation.
+
 ## Version 1.4.0
 
 Released 2021-04-04

@@ -2,7 +2,3 @@ pytest
 twine
 sphinx
 sphinx-autobuild
-sphinx-book-theme
-myst-parser
-linkify-it-py
-sphinx_panels
