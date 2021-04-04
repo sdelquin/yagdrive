@@ -2,7 +2,7 @@ version: 2
 python:
   version: 3.8
   install:
-    - requirements: docs/requirements.txt
+    - requirements: requirements/docs.txt
 sphinx:
   builder: dirhtml
   fail_on_warning: true
